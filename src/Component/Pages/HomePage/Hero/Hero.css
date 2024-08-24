@@ -1,0 +1,47 @@
+.hero {
+  position: relative;
+  height: 100vh;
+  .container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    gap: 5rem;
+
+    .info {
+      text-align: right;
+      h1 {
+        font-size: 3rem;
+      }
+      h3 {
+        color: #777;
+        margin: 1rem 0;
+      }
+      .btns{
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 3rem;
+
+        button{
+            border: none;
+            padding: 5px 25px;
+            font-size: 1.5rem;
+            border-radius: 5px;
+        }
+      }
+    }
+
+    .image {
+      width: 350px;
+      height: 250px;
+      border: 2px solid black;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      img {
+        width: 100%;
+      }
+    }
+  }
+}

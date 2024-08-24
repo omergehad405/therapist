@@ -1,0 +1,24 @@
+header {
+  .container {
+    margin-top: 25px;
+
+    .logo {
+      font-size: 3rem;
+    }
+
+    ul {
+      direction: rtl;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      justify-content: center;
+
+      li {
+        list-style: none;
+        a {
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+}
