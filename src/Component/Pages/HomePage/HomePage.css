@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --main-color: #028ed6;
+  --second-color: #444444;
+}
+
+body {
+  font-family: "Almarai", sans-serif;
+}

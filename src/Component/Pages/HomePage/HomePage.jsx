@@ -1,15 +1,15 @@
 import React from "react";
-import Hero from "./Hero/Hero";
-import About from "./AboutUs/About";
-import Goals from "./Goals/Goals";
-import Blogs from "./Blogs/Blogs";
+import Hero from "./Hero";
+import About from "./About";
+import LBlogs from "./LBlogs";
+import Subscription from "./Subscription";
 function HomePage() {
   return (
     <div>
       <Hero />
       <About />
-      <Goals />
-      <Blogs />
+      <LBlogs />
+      <Subscription />
     </div>
   );
 }
