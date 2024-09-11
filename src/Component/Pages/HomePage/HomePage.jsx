@@ -1,15 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Hero from "./Hero";
 import About from "./About";
-import LBlogs from "./LBlogs";
-import Subscription from "./Subscription";
+import Blogs from "./Blogs";
 function HomePage() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div>
       <Hero />
       <About />
-      <LBlogs />
-      <Subscription />
+      <Blogs />
     </div>
   );
 }

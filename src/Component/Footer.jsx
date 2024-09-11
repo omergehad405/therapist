@@ -6,6 +6,7 @@ function Footer() {
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
   useEffect(() => {
     const fetchLatestBlogs = async () => {
       try {
@@ -39,7 +40,7 @@ function Footer() {
         </h1>
         <button className="group relative py-3 px-10 text-base font-bold nded-full overflow-hidden bg-[var(--main-color)] rounded-md transition-all duration-400 ease-in-out shadow-md hover:scale-105 hover:shadow-lg ">
           <Link to="contact" className="text-[22px] text-white">
-            ابدا الان
+            احجز جلستك الان
           </Link>
         </button>
       </div>
@@ -49,13 +50,13 @@ function Footer() {
           اخر المقالات
         </h1>
         <ul className="flex flex-col gap-5 items-center">
-          {blogs.map((blog) => {
+          {blogs.map((blog) => (
             <li key={blog.id}>
               <Link to={`/blogs/${blog.id}`} className="text-[#ccc]">
-                {blog.attributes.blogDesc}
+                {blog.attributes.blogTitle}
               </Link>
-            </li>;
-          })}
+            </li>
+          ))}
         </ul>
       </div>
 
