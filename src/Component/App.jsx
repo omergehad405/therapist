@@ -6,6 +6,7 @@ import HomePage from "./Pages/HomePage/HomePage";
 import ServicesPage from "./Pages/ServicesPage/ServicesPage";
 import WrittenBlogs from "./Pages/BlogsPage/WrittenBlogs";
 import AudioBlogs from "./Pages/BlogsPage/AudioBlogs";
+import AboutPage from "./Pages/AboutPage/AboutPage";
 import { useLocation } from "react-router-dom";
 import Loader from "./Lodar";
 import SelectedBlog from "./Pages/BLogsPage/SelectedBlog";
@@ -30,7 +31,8 @@ function App() {
           <Route path="WrittenBlogs" element={<WrittenBlogs />} />
           <Route path="AudioBlogs" element={<AudioBlogs />} />
           <Route path="/blogs/:id" element={<SelectedBlog />} />{" "}
-          <Route path="/services" element={<ServicesPage />} />
+          <Route path="services" element={<ServicesPage />} />
+          <Route path="About" element={<AboutPage />} />
         </Routes>
         <Footer />
       </div>

@@ -76,8 +76,8 @@ function ServicesPage() {
               </p>
             </div>
           </div>
-          <div className="mt-10">
-            <div className="container bg-[#ddd] w-full h-[300px] p-5 flex flex-col justify-center items-center gap-20">
+          <div className="">
+            <div className="bg-[#ddd] w-full h-[300px] p-5 flex flex-col justify-center items-center gap-20">
               <h1 className="text-center font-bold text-[var(--second-color)] text-[2rem]">
                 تواصل معنا لتجد الدعم الذي تحتاجه.
               </h1>

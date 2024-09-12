@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 
 function Blogs() {
   return (
-    <section className="min-h-[100vh] relative" id="blogs">
+    <section className="relative mt-[15rem]" id="blogs">
       <div>
-        <h1 className="relative mt-[5rem] sm:mt-[10rem] text-[3rem] font-bold text-[var(--second-color)] text-center">
+        <h1 className="relative  text-[3rem] font-bold text-[var(--second-color)] text-center">
           المقالات
         </h1>
         <p className="mb-[6rem] mt-5 text-[2rem] text-[#777] text-center md:text-[1.5rem]">

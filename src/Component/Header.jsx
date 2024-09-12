@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function Header() {
   const [isNavOpen, setIsNavOpen] = useState(false);
   return (
-    <header className="relative top-0 z-10 w-full bg-white py-5 shadow-lg">
+    <header className="relative md:fixed top-0 z-10 w-full bg-white py-5 shadow-lg">
       <div className="container mx-auto items-center flex justify-evenly">
         <Link to="/" className="logo font-bold text-[2rem]">
           <img src="./logo.png" alt="logo img" className="w-[100px]" />
@@ -40,6 +40,18 @@ function Header() {
               to="/services"
             >
               خدماتنا
+            </Link>
+          </li>
+          <li
+            onClick={() => {
+              setIsNavOpen(!isNavOpen);
+            }}
+          >
+            <Link
+              className="md:text-white font-bold text-[1.5rem] hover:text-[var(--main-color)] transtion-text duration-500"
+              to="about"
+            >
+              من انا
             </Link>
           </li>
         </ul>
