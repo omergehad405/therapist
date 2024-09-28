@@ -28,7 +28,7 @@ function Services() {
           </div>
           <button className="group relative py-3 px-10 text-base font-bold nded-full overflow-hidden bg-[var(--main-color)] rounded-md transition-all duration-400 ease-in-out shadow-md hover:scale-105 hover:shadow-lg">
             <Link to="services" className="text-[22px] text-white">
-              تعرف علي المزيد
+              تعرف على المزيد
             </Link>
           </button>
         </div>

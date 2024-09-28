@@ -40,14 +40,14 @@ function Footer() {
         </h1>
         <button className="group relative py-3 px-3 text-base font-bold nded-full overflow-hidden bg-[var(--main-color)] rounded-md transition-all duration-400 ease-in-out shadow-md hover:scale-105 hover:shadow-lg ">
           <Link to="contact" className="text-[22px] text-white">
-            احجز جلستك الان
+            احجز جلستك الآن
           </Link>
         </button>
       </div>
 
       <div className="flex flex-col items-center gap-5 h-[250px]">
         <h1 className="text-white font-bold text-[1.5rem] text-center">
-          اخر المقالات
+          آخر المقالات
         </h1>
         <ul className="flex flex-col gap-5 items-center">
           {blogs.map((blog) => (
