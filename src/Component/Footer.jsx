@@ -23,22 +23,22 @@ function Footer() {
     fetchLatestBlogs();
   }, []);
 
-  if (loading) {
-    return (
-      <p className="text-center font-bold text-[2rem] my-10">Loading...</p>
-    );
-  }
+  // if (loading) {
+  //   return (
+  //     <p className="text-center font-bold text-[2rem] my-10">Loading...</p>
+  //   );
+  // }
 
-  if (error) {
-    return <p className="text-center font-bold text-[2rem] my-10">{error}</p>;
-  }
+  // if (error) {
+  //   return <p className="text-center font-bold text-[2rem] my-10">{error}</p>;
+  // }
   return (
     <footer className="bg-[var(--second-color)] w-full min-h-[300px] p-10 flex md:flex-col flex-wrap items-center justify-evenly">
       <div className="flex flex-col items-center gap-5 h-[250px]">
         <h1 className="text-white font-bold text-[1.5rem] text-center">
           تواصل معنا لتجد الدعم الذي تحتاجه.
         </h1>
-        <button className="group relative py-3 px-10 text-base font-bold nded-full overflow-hidden bg-[var(--main-color)] rounded-md transition-all duration-400 ease-in-out shadow-md hover:scale-105 hover:shadow-lg ">
+        <button className="group relative py-3 px-3 text-base font-bold nded-full overflow-hidden bg-[var(--main-color)] rounded-md transition-all duration-400 ease-in-out shadow-md hover:scale-105 hover:shadow-lg ">
           <Link to="contact" className="text-[22px] text-white">
             احجز جلستك الان
           </Link>

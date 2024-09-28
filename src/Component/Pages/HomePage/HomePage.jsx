@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import Hero from "./Hero";
 import Services from "./Services";
-import About from "./About";
 import Blogs from "./Blogs";
 function HomePage() {
   useEffect(() => {
@@ -11,7 +10,6 @@ function HomePage() {
     <div>
       <Hero />
       <Services />
-      <About />
       <Blogs />
     </div>
   );

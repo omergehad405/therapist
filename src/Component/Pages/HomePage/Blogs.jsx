@@ -31,7 +31,7 @@ function Blogs() {
         </div>
 
         <div className="w-[500px] bg-[#eee] h-[550px] md:w-[350px] md:h-[450px] relative ">
-          <img src="./top-view-desk-concept-with-laptop.jpg" alt="blogs img" />
+          <img src="./download.jpeg" alt="blogs img" />
           <h1 className=" text-center font-bold text-[var(--main-color)] my-10 text-[2rem]">
             مقالات مكتوبة
           </h1>
