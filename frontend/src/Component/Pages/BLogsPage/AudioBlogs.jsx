@@ -1,17 +1,16 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 
 function AudioBlogs() {
   const [audios, setAudios] = useState([]);
-  const [loading, setLoading] = useState();
-  const [error, setError] = useState();
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchAudios = async () => {
       try {
         const response = await axios.get(
-          "https://strapi-production-df70.up.railway.app/api/audio-blogs?populate=*"
+          "https://strapi-cpc0.onrender.com/api/audios?populate=*"
         );
         setAudios(response.data.data);
         setLoading(false);
@@ -39,10 +38,10 @@ function AudioBlogs() {
       <div className="min-h-[100vh] relative mb-[10rem] sm:mb-[20rem] sm:mt-[7rem]">
         <div
           dir="rtl"
-          className="container mx-auto flex flex-wrap items-center justify-center gap-10 my-10 w-full px-4 sm:px-6 lg:px-8"
+          className="container mx-auto flex flex-wrap items-center justify-center gap-10 my-10  px-4 sm:px-6 lg:px-8"
         >
           {audios.map((audio) => {
-            const audioUrl = `https://strapi-production-df70.up.railway.app${audio.attributes.blogAudio.data.attributes.url}`;
+            const audioUrl = `https://strapi-cpc0.onrender.com${audio.audioBLog.url}`;
             return (
               <div
                 key={audio.id}
@@ -50,7 +49,7 @@ function AudioBlogs() {
               >
                 <div dir="rtl" className="p-6">
                   <h5 className="mb-2 text-[2rem] font-semibold text-center text-[var(--second-color)]">
-                    {audio.attributes.blogTitle}
+                    {audio.blogTitle}
                   </h5>
                   <audio controls className="container mx-auto">
                     <source src={audioUrl} type="audio/mpeg" />
@@ -67,11 +66,3 @@ function AudioBlogs() {
 }
 
 export default AudioBlogs;
-
-//
-//   return (
-//
-//   );
-// }
-
-// export default WrittenBlogs;

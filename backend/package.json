@@ -14,6 +14,7 @@
     "@strapi/plugin-cloud": "5.6.0",
     "@strapi/plugin-users-permissions": "5.6.0",
     "@strapi/strapi": "5.6.0",
+    "@supabase/supabase-js": "^2.47.10",
     "better-sqlite3": "11.3.0",
     "pg": "^8.13.1",
     "postgres": "^3.4.5",
@@ -22,11 +23,17 @@
     "react-router-dom": "^6.0.0",
     "styled-components": "^6.0.0"
   },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "typescript": "^5"
+  },
   "engines": {
     "node": ">=18.0.0 <=22.x.x",
     "npm": ">=6.0.0"
   },
   "strapi": {
-    "uuid": "4382750e-e2b6-4ef4-97df-c9e66e20a8b5"
+    "uuid": "e8d15b22-b8b0-4a3b-915f-677a87a2bd0d"
   }
 }

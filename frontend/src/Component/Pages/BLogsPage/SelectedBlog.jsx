@@ -1,50 +1,53 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./BlogsPage.css";
 
 function SelectedBlog() {
-  const { id } = useParams(); // Retrieve blog ID from the URL
+  const { documentId } = useParams(); // Get the documentId from URL
   const [blog, setBlog] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
   useEffect(() => {
     const fetchBlogData = async () => {
       try {
         // Fetch blog data by ID
-        const response = await axios.get(
-          `https://strapi-eyem.onrender.com/api/articles/${id}?populate=*`
+        const blogResponse = await axios.get(
+          `https://strapi-cpc0.onrender.com/api/blogs/${documentId}?populate=blogImg`
         );
-        setBlog(response.data.data); // Set the blog data
+        setBlog(blogResponse.data.data);
       } catch (err) {
-        setError("Error fetching blog data. Please try again.");
+        setError("Error fetching blog or comments data");
       } finally {
-        setLoading(false); // Stop the loading spinner
+        setLoading(false);
       }
     };
 
     fetchBlogData();
-  }, [id]);
+  }, [documentId]);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
 
   return (
-    <div dir="rtl" className="container my-10">
+    <div dir="rtl" className="container my-10 ">
       {blog ? (
         <>
-          <h1 className="blog-title">{blog.attributes.blogTitle}</h1>
-          {blog.attributes.blogImg?.data?.attributes?.url && (
+          <h1 className="blog-title capitalize text-[3rem] mx-10">
+            {blog.blogTitle}
+          </h1>
+          {blog.blogImg.url && (
             <img
-              src={blog.attributes.blogImg.data.attributes.url}
+              src={`https://strapi-cpc0.onrender.com${blog.blogImg.url}`}
               alt="Blog"
-              className="blog-image"
+              className="blog-image w-[450px] my-10 mx-10"
             />
           )}
-          <div className="blog-content">{blog.attributes.blogContent}</div>
+          <div className="blog-content mx-10 leading-[3] mb-10 text-[#777]">
+            {blog.blogContent}
+          </div>
         </>
       ) : (
         <p>Blog not found</p>

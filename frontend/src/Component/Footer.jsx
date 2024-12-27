@@ -11,9 +11,9 @@ function Footer() {
     const fetchLatestBlogs = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3000/blogs?populate=*"
+          "https://strapi-cpc0.onrender.com/api/blogs?populate=*"
         );
-        setBlogs(response.data);
+        setBlogs(response.data.data);
         console.log(response.data);
       } catch (err) {
         setError("Failed to fetch the latest blogs");

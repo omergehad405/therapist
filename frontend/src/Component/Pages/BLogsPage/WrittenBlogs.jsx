@@ -11,11 +11,10 @@ function WrittenBlogs() {
     const fetchBlogs = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3000/blogs?populate=*"
+          "https://strapi-cpc0.onrender.com/api/blogs?populate=blogImg"
         );
-        setBlogs(response.data);
+        setBlogs(response.data.data);
         setLoading(false);
-        console.log(response.data);
       } catch (err) {
         setError("Error fetching blogs");
         setLoading(false);
@@ -40,12 +39,13 @@ function WrittenBlogs() {
       <div className="min-h-[100vh] relative mb-[10rem] sm:mb-[20rem] sm:mt-[7rem]">
         <div
           dir="rtl"
-          className="container mx-auto flex flex-wrap items-center justify-center gap-10 my-10 w-full px-4 sm:px-6 lg:px-8"
+          className="container mx-auto flex flex-wrap items-center justify-center gap-10 my-10 px-4 sm:px-6 lg:px-8"
         >
           {blogs.map((blog) => {
+            // Ensure the URL is correct
             const blogImgUrl = blog.blogImg
-              ? `https://strapi-eyem.onrender.com${blog.blogImg}`
-              : "/path/to/placeholder-image.jpg";
+              ? `https://strapi-cpc0.onrender.com${blog.blogImg.url}`
+              : "https://via.placeholder.com/1366x618?text=No+Image"; // Fallback image
 
             return (
               <div
@@ -57,6 +57,11 @@ function WrittenBlogs() {
                     src={blogImgUrl}
                     alt={blog.blogTitle || "blog Cover"}
                     className="w-full h-full object-cover mb-4"
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src =
+                        "https://via.placeholder.com/1366x618?text=No+Image"; // Fallback in case the image doesn't load
+                    }}
                   />
                 </div>
                 <div dir="rtl" className="p-6">
@@ -67,7 +72,7 @@ function WrittenBlogs() {
                 </div>
                 <div className="p-6 pt-0 text-center">
                   <Link
-                    to={`/blogs/${blog.id}`}
+                    to={`/blogs/${blog.documentId}`}
                     className="inline-block px-6 py-3 text-[1.5rem] text-white bg-[var(--second-color)] rounded-lg shadow-md hover:shadow-lg"
                   >
                     اقرء المزيد
