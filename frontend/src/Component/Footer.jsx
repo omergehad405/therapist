@@ -53,7 +53,7 @@ function Footer() {
         <ul className="flex flex-col gap-5 items-center">
           {blogs.map((blog) => (
             <li key={blog.id}>
-              <Link to={`/blogs/${blog.id}`} className="text-[#ccc]">
+              <Link to={`/blogs/${blog.documentId}`} className="text-[#ccc]">
                 {blog.blogTitle}
               </Link>
             </li>

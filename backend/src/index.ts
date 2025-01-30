@@ -1,20 +1,20 @@
-// import type { Core } from '@strapi/strapi';
+module.exports = {
+  async bootstrap({ strapi }) {
+    try {
+      // Run a raw SQL query to update the 'folder_path' field in the 'files' table
+      await strapi.db.connection.raw(`
+        UPDATE public.files 
+        SET folder_path = '/' 
+        WHERE folder_path IS NULL;
+      `);
 
-export default {
-  /**
-   * An asynchronous register function that runs before
-   * your application is initialized.
-   *
-   * This gives you an opportunity to extend code.
-   */
-  register(/* { strapi }: { strapi: Core.Strapi } */) {},
-
-  /**
-   * An asynchronous bootstrap function that runs before
-   * your application gets started.
-   *
-   * This gives you an opportunity to set up your data model,
-   * run jobs, or perform some special logic.
-   */
-  bootstrap(/* { strapi }: { strapi: Core.Strapi } */) {},
+      // Log success message
+      strapi.log.info(
+        "Successfully updated folder_path in files table where it was null."
+      );
+    } catch (error) {
+      // Log error message in case of failure
+      strapi.log.error("Error updating folder_path in files table: ", error);
+    }
+  },
 };
