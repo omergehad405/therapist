@@ -42,37 +42,39 @@ function WrittenBlogs() {
           className="container mx-auto flex flex-wrap items-center justify-center gap-10 my-10 px-4 sm:px-6 lg:px-8"
         >
           {blogs.map((blog) => {
-            // Ensure the URL is correct
-            const blogImgUrl = blog.blogImg
-              ? `https://strapi-cpc0.onrender.com${blog.blogImg.url}`
-              : "https://via.placeholder.com/1366x618?text=No+Image"; // Fallback image
+            const { blogTitle, blogDesc, blogImg, documentId, id } = blog;
+
+            // Retrieve the small image URL or fallback to a dummy image
+            const blogImgUrl =
+              blogImg?.formats?.small?.url ||
+              "https://dummyimage.com/1366x618/cccccc/ffffff.png&text=No+Image";
 
             return (
               <div
-                key={blog.id}
+                key={id}
                 className="relative flex flex-col w-full max-w-[450px] h-auto bg-[#eee] bg-clip-border shadow-md rounded-xl overflow-hidden"
               >
                 <div className="relative h-[250px] overflow-hidden">
                   <img
                     src={blogImgUrl}
-                    alt={blog.blogTitle || "blog Cover"}
-                    className="w-full h-full object-cover mb-4"
+                    alt={blogTitle || "Blog Cover"}
+                    className="w-full h-full mb-4"
                     onError={(e) => {
                       e.target.onerror = null;
                       e.target.src =
-                        "https://via.placeholder.com/1366x618?text=No+Image"; // Fallback in case the image doesn't load
+                        "https://dummyimage.com/1366x618/cccccc/ffffff.png&text=No+Image";
                     }}
                   />
                 </div>
                 <div dir="rtl" className="p-6">
                   <h5 className="mb-2 text-[2rem] font-semibold text-[var(--second-color)]">
-                    {blog.blogTitle}
+                    {blogTitle}
                   </h5>
-                  <p className="text-[#777] text-[1.1rem]">{blog.blogDesc}</p>
+                  <p className="text-[#777] text-[1.1rem]">{blogDesc}</p>
                 </div>
                 <div className="p-6 pt-0 text-center">
                   <Link
-                    to={`/blogs/${blog.documentId}`}
+                    to={`/blogs/${documentId}`}
                     className="inline-block px-6 py-3 text-[1.5rem] text-white bg-[var(--second-color)] rounded-lg shadow-md hover:shadow-lg"
                   >
                     اقرء المزيد

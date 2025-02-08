@@ -38,10 +38,12 @@ function AudioBlogs() {
       <div className="min-h-[100vh] relative mb-[10rem] sm:mb-[20rem] sm:mt-[7rem]">
         <div
           dir="rtl"
-          className="container mx-auto flex flex-wrap items-center justify-center gap-10 my-10  px-4 sm:px-6 lg:px-8"
+          className="container mx-auto flex flex-wrap items-center justify-center gap-10 my-10 px-4 sm:px-6 lg:px-8"
         >
           {audios.map((audio) => {
-            const audioUrl = `https://strapi-cpc0.onrender.com${audio.audioBLog.url}`;
+            // Use the audio URL directly from the API without any modifications
+            const audioUrl = audio?.audioBLog?.url;
+
             return (
               <div
                 key={audio.id}
@@ -49,12 +51,18 @@ function AudioBlogs() {
               >
                 <div dir="rtl" className="p-6">
                   <h5 className="mb-2 text-[2rem] font-semibold text-center text-[var(--second-color)]">
-                    {audio.blogTitle}
+                    {audio?.attributes?.blogTitle || "Untitled Audio Blog"}
                   </h5>
-                  <audio controls className="container mx-auto">
-                    <source src={audioUrl} type="audio/mpeg" />
-                    Your browser does not support the audio element.
-                  </audio>
+                  {audioUrl ? (
+                    <audio controls className="container mx-auto">
+                      <source src={audioUrl} type="audio/mpeg" />
+                      Your browser does not support the audio element.
+                    </audio>
+                  ) : (
+                    <p className="text-center text-[1rem] text-gray-500">
+                      Audio file not available
+                    </p>
+                  )}
                 </div>
               </div>
             );
