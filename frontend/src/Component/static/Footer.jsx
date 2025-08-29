@@ -93,7 +93,11 @@ function Footer() {
 
       <p className="text-center text-white">
         © 2025 All Rights Reserved to
-        <a href="" className="text-[var(--main-color)] font-bold ml-2">
+        <a
+          href="https://omergehad405.github.io/portfolio0.2/"
+          className="text-[var(--main-color)] font-bold ml-1"
+          target="__plank"
+        >
           Omar Gehad
         </a>
       </p>

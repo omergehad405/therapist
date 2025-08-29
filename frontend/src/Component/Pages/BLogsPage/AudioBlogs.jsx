@@ -36,38 +36,44 @@ function AudioBlogs() {
         مقالات صوتية
       </h1>
       <div className="min-h-[100vh] relative mb-[10rem] sm:mb-[20rem] sm:mt-[7rem]">
-        <div
-          dir="rtl"
-          className="container mx-auto flex flex-wrap items-center justify-center gap-10 my-10 px-4 sm:px-6 lg:px-8"
-        >
-          {audios.map((audio) => {
-            // Use the audio URL directly from the API without any modifications
-            const audioUrl = audio?.audioBLog?.url;
+        {audios.length == 0 ? (
+          <p className="text-center font-bold text-[2rem] my-10">
+            لا يوجد مقالات صوتية بعد
+          </p>
+        ) : (
+          <div
+            dir="rtl"
+            className="container mx-auto flex flex-wrap items-center justify-center gap-10 my-10 px-4 sm:px-6 lg:px-8"
+          >
+            {audios.map((audio) => {
+              // Use the audio URL directly from the API without any modifications
+              const audioUrl = audio?.audioBLog?.url;
 
-            return (
-              <div
-                key={audio.id}
-                className="relative flex flex-col w-full max-w-[450px] h-auto bg-[#eee] bg-clip-border shadow-md rounded-xl overflow-hidden"
-              >
-                <div dir="rtl" className="p-6">
-                  <h5 className="mb-2 text-[2rem] font-semibold text-center text-[var(--second-color)]">
-                    {audio?.blogTitle || "Untitled Audio Blog"}
-                  </h5>
-                  {audioUrl ? (
-                    <audio controls className="container mx-auto">
-                      <source src={audioUrl} type="audio/mpeg" />
-                      Your browser does not support the audio element.
-                    </audio>
-                  ) : (
-                    <p className="text-center text-[1rem] text-gray-500">
-                      Audio file not available
-                    </p>
-                  )}
+              return (
+                <div
+                  key={audio.id}
+                  className="relative flex flex-col w-full max-w-[450px] h-auto bg-[#eee] bg-clip-border shadow-md rounded-xl overflow-hidden"
+                >
+                  <div dir="rtl" className="p-6">
+                    <h5 className="mb-2 text-[2rem] font-semibold text-center text-[var(--second-color)]">
+                      {audio?.blogTitle || "Untitled Audio Blog"}
+                    </h5>
+                    {audioUrl ? (
+                      <audio controls className="container mx-auto">
+                        <source src={audioUrl} type="audio/mpeg" />
+                        Your browser does not support the audio element.
+                      </audio>
+                    ) : (
+                      <p className="text-center text-[1rem] text-gray-500">
+                        Audio file not available
+                      </p>
+                    )}
+                  </div>
                 </div>
-              </div>
-            );
-          })}
-        </div>
+              );
+            })}
+          </div>
+        )}
       </div>
     </div>
   );
