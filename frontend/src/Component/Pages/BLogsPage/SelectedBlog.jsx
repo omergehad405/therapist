@@ -4,22 +4,24 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./BlogsPage.css";
+import Comments from "./Comments";
 
 function SelectedBlog() {
   const { documentId } = useParams(); // Get the documentId from URL
   const [blog, setBlog] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
   useEffect(() => {
     const fetchBlogData = async () => {
       try {
         // Fetch blog data by ID
-        const blogResponse = await axios.get(
-          `https://strapi-cpc0.onrender.com/api/blogs/${documentId}?populate=blogImg`
+        const response = await axios.get(
+          `https://strapi-1-o4c2.onrender.com/api/blogs/${documentId}?populate=blogImg`
         );
-        setBlog(blogResponse.data.data);
+        setBlog(response.data.data);
       } catch (err) {
-        setError("Error fetching blog or comments data");
+        setError("Error fetching blog data");
       } finally {
         setLoading(false);
       }
@@ -32,16 +34,16 @@ function SelectedBlog() {
   if (error) return <p>{error}</p>;
 
   return (
-    <div dir="rtl" className="container my-10 ">
+    <div dir="rtl" className="container my-10">
       {blog ? (
         <>
           <h1 className="blog-title capitalize text-[3rem] mx-10">
             {blog.blogTitle}
           </h1>
-          {blog.blogImg.url && (
+          {blog.blogImg?.url && (
             <img
-              src={`https://strapi-cpc0.onrender.com${blog.blogImg.url}`}
-              alt="Blog"
+              src={blog.blogImg.url}
+              alt={blog.blogImg?.alternativeText || "Blog Image"}
               className="blog-image w-[450px] my-10 mx-10"
             />
           )}
@@ -52,6 +54,8 @@ function SelectedBlog() {
       ) : (
         <p>Blog not found</p>
       )}
+
+      <Comments />
       <ToastContainer />
     </div>
   );

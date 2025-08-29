@@ -10,7 +10,7 @@ function AudioBlogs() {
     const fetchAudios = async () => {
       try {
         const response = await axios.get(
-          "https://strapi-cpc0.onrender.com/api/audios?populate=*"
+          "https://strapi-1-o4c2.onrender.com/api/audios?populate=*"
         );
         setAudios(response.data.data);
         setLoading(false);
@@ -51,7 +51,7 @@ function AudioBlogs() {
               >
                 <div dir="rtl" className="p-6">
                   <h5 className="mb-2 text-[2rem] font-semibold text-center text-[var(--second-color)]">
-                    {audio?.attributes?.blogTitle || "Untitled Audio Blog"}
+                    {audio?.blogTitle || "Untitled Audio Blog"}
                   </h5>
                   {audioUrl ? (
                     <audio controls className="container mx-auto">

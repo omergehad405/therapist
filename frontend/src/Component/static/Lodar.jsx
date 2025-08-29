@@ -1,5 +1,5 @@
 import React from "react";
-import "./App.css";
+import "../App.css";
 function Lodar() {
   return (
     <div className="relative flex items-center justify-center h-[100vh]">

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Header from "./Header";
-import Footer from "./Footer";
+import Header from "./static/Header";
+import Footer from "./static/Footer";
 import { Routes, Route } from "react-router-dom";
 import HomePage from "./Pages/HomePage/HomePage";
 import ServicesPage from "./Pages/ServicesPage/ServicesPage";
@@ -8,8 +8,9 @@ import WrittenBlogs from "./Pages/BlogsPage/WrittenBlogs";
 import AudioBlogs from "./Pages/BlogsPage/AudioBlogs";
 import AboutPage from "./Pages/AboutPage/AboutPage";
 import { useLocation } from "react-router-dom";
-import Loader from "./Lodar";
+import Loader from "./static/Lodar";
 import SelectedBlog from "./Pages/BLogsPage/SelectedBlog";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -21,7 +22,7 @@ function App() {
     return () => clearTimeout(timer);
   }, [location]);
   return (
-    <div>
+    <>
       {loading && <Loader />}
       <div className={`${loading ? "hidden" : " "}`}>
         <Header />
@@ -35,7 +36,17 @@ function App() {
         </Routes>
         <Footer />
       </div>
-    </div>
+
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        pauseOnHover={false}
+        draggable={false}
+      />
+    </>
   );
 }
 

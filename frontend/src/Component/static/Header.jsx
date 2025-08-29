@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./App.css";
+import "../App.css";
 import { Link } from "react-router-dom";
 function Header() {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -70,11 +70,16 @@ function Header() {
 
           <button
             className="group relative py-3 px-3 text-base font-bold nded-full overflow-hidden bg-[var(--main-color)] rounded-md transition-all duration-400 ease-in-out shadow-md hover:scale-105 hover:shadow-lg 
-              before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-[var(--second-color)] before:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-md hover:before:left-0"
+      before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-[var(--second-color)] before:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-md hover:before:left-0"
           >
-            <Link to="contact" className="text-[22px] text-white">
+            <a
+              href="https://wa.me/00966596116985"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[22px] text-white"
+            >
               احجز جلستك الآن
-            </Link>
+            </a>
           </button>
         </div>
       </div>
